@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dxghou5p21myx"]
+
+[ext_resource type="Script" uid="uid://cfrc8pe1po7fe" path="res://Player/PlayerMovement.gd" id="1_t8ibh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8jovo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t8ibh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t8ibh"]
+
+[node name="Player" type="Node3D" unique_id=1652226877]
+
+[node name="MovementComp" type="CharacterBody3D" parent="." unique_id=1360391585]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, 0)
+script = ExtResource("1_t8ibh")
+
+[node name="Visuals" type="Node3D" parent="MovementComp" unique_id=873187538]
+
+[node name="Bean" type="MeshInstance3D" parent="MovementComp/Visuals" unique_id=83650597]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 2.9802322e-08, 0)
+mesh = SubResource("CapsuleMesh_8jovo")
+skeleton = NodePath("../..")
+
+[node name="Cool Eyes" type="CSGMesh3D" parent="MovementComp/Visuals/Bean" unique_id=138582570]
+transform = Transform3D(0.6398529, 0, 0, 0, 0.25839624, 0, 0, 0, 0.6898637, 0, 0.4190353, -0.2702638)
+mesh = SubResource("BoxMesh_t8ibh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovementComp" unique_id=2144805570]
+shape = SubResource("CapsuleShape3D_t8ibh")
+
+[node name="CameraPivot" type="Node3D" parent="MovementComp" unique_id=487482208]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="MovementComp/CameraPivot" unique_id=1096391987]
+transform = Transform3D(-4.371139e-08, 0.49999997, -0.8660253, 0, 0.8660253, 0.49999997, 1, 2.1855692e-08, -3.785517e-08, -17.845, 12.277399, 0)
+current = true
+fov = 35.0
+size = 12.0
+far = 150.0
