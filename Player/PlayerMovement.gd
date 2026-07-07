@@ -2,9 +2,10 @@ extends CharacterBody3D
 
 
 const SPEED = 7.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 3.0
 
 @onready var visuals: Node3D = $Visuals
+@onready var animation_player: AnimationPlayer = $Visuals/Car/catbanana/AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,10 +25,13 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * SPEED
 		
 		var target_rotation = atan2(direction.x, direction.z)
-		visuals.rotation.y = lerp_angle(visuals.rotation.y, target_rotation, 10.0 * delta)
+		visuals.rotation.y = lerp_angle(visuals.rotation.y, target_rotation, 6.0 * delta)
+		
+		animation_player.play("metarigAction_001")
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		animation_player.seek(0)
 
 	move_and_slide()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxghou5p21myx"]
 
 [ext_resource type="Script" uid="uid://cfrc8pe1po7fe" path="res://Player/PlayerMovement.gd" id="1_t8ibh"]
+[ext_resource type="PackedScene" uid="uid://d103h1wsg7n5e" path="res://Player/Cat/car.tscn" id="2_q3lat"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8jovo"]
 
@@ -18,6 +19,7 @@ script = ExtResource("1_t8ibh")
 
 [node name="Bean" type="MeshInstance3D" parent="MovementComp/Visuals" unique_id=83650597]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 2.9802322e-08, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_8jovo")
 skeleton = NodePath("../..")
 
@@ -25,15 +27,27 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.6398529, 0, 0, 0, 0.25839624, 0, 0, 0, 0.6898637, 0, 0.4190353, -0.2702638)
 mesh = SubResource("BoxMesh_t8ibh")
 
+[node name="Car" parent="MovementComp/Visuals" unique_id=580211 instance=ExtResource("2_q3lat")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovementComp" unique_id=2144805570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4282195e-08, 0, 0.16336927)
 shape = SubResource("CapsuleShape3D_t8ibh")
 
-[node name="CameraPivot" type="Node3D" parent="MovementComp" unique_id=487482208]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+[node name="CameraPivot" type="Node3D" parent="." unique_id=487482208]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="MovementComp/CameraPivot" unique_id=1096391987]
-transform = Transform3D(-4.371139e-08, 0.49999997, -0.8660253, 0, 0.8660253, 0.49999997, 1, 2.1855692e-08, -3.785517e-08, -17.845, 12.277399, 0)
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1096391987]
+transform = Transform3D(-4.371139e-08, 0.49999997, -0.8660253, 0, 0.8660253, 0.49999997, 1, 2.1855692e-08, -3.785517e-08, -18, 13, 0)
 current = true
 fov = 35.0
 size = 12.0
 far = 150.0
+
+[node name="cam_Initailpt" type="Node3D" parent="CameraPivot" unique_id=155876621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 0)
+
+[node name="cam_finalpt" type="Node3D" parent="CameraPivot" unique_id=1753691796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 13, 0)
+
+[editable path="MovementComp/Visuals/Car"]
