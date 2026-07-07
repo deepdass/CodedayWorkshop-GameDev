@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://br1ogaxeo4ppc" path="res://Scenes/Env/tree1.tscn" id="4_j3sk6"]
 [ext_resource type="ArrayMesh" uid="uid://dp5c3nqdvnsv0" path="res://Assets/Meshes/flower.res" id="4_tnm7e"]
 [ext_resource type="PackedScene" uid="uid://bd8xvyw27mlfp" path="res://Scenes/Env/tree2.tscn" id="5_gfl13"]
+[ext_resource type="PackedScene" uid="uid://e67jqy5bvn1k" path="res://Scenes/Env/green_land.tscn" id="5_wjun0"]
 [ext_resource type="PackedScene" uid="uid://bptt6vsaju0qs" path="res://Scenes/Env/Rock.tscn" id="6_e2fbs"]
+[ext_resource type="PackedScene" uid="uid://8eas0on0nodq" path="res://Scenes/Env/water.tscn" id="6_j3sk6"]
 [ext_resource type="Texture2D" uid="uid://dey5onb6mwp3f" path="res://Assets/Textures/leaf_particle.png" id="13_vr0cu"]
 [ext_resource type="Script" uid="uid://brcimd12tx3dm" path="res://Scripts/edge_detection_compositor.gd" id="14_sv6bm"]
 [ext_resource type="PackedScene" uid="uid://dxghou5p21myx" path="res://Player/Player.tscn" id="15_cjp06"]
@@ -556,7 +558,7 @@ metadata/_custom_type_script = "uid://brcimd12tx3dm"
 [sub_resource type="Compositor" id="Compositor_75b2y"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_k8itn")])
 
-[node name="DemoForest" type="Node3D" unique_id=1308239193]
+[node name="Forest" type="Node3D" unique_id=1308239193]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1919175699]
 texture_filter = 1
@@ -582,7 +584,75 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 script = ExtResource("1_pw6c3")
 
 [node name="Player" parent="SubViewportContainer/SubViewport/World" unique_id=1652226877 instance=ExtResource("15_cjp06")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.35188165, 0.46494818, 67.45935)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.35188437, 0.20680189, 5.4593506)
+
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car/catbanana/Cat" parent_id_path=PackedInt32Array(1652226877, 580211, 88304319) index="0" unique_id=76307917]
+bones/0/position = Vector3(-6.7666595e-05, 0.39023006, -0.052428715)
+bones/1/rotation = Quaternion(0.15627885, 0.0014945621, 0.047689423, 0.98655987)
+bones/3/rotation = Quaternion(0.10045765, -0.00014196495, 0.033322014, 0.99438316)
+bones/5/rotation = Quaternion(-0.12574337, 0.4272114, 0.78526837, -0.4301542)
+bones/6/rotation = Quaternion(0.96849805, 0.028349632, -0.0058833165, -0.2473322)
+bones/7/rotation = Quaternion(0.102538496, 4.767511e-07, -6.759891e-07, 0.99472904)
+bones/9/rotation = Quaternion(0.10253885, -5.7675354e-08, -8.408137e-08, 0.994729)
+bones/11/rotation = Quaternion(0.20938973, 0.24574903, -0.6475436, 0.6902541)
+bones/12/rotation = Quaternion(0.048012495, -0.0059158206, -0.004007365, 0.9988212)
+bones/13/rotation = Quaternion(0.2215467, -0.23504351, 0.6869211, 0.6510077)
+bones/14/rotation = Quaternion(0.04801238, 0.005915727, 0.0040073604, 0.9988212)
+
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Mage/CharacterMesh/Rig" parent_id_path=PackedInt32Array(1652226877, 955432568, 711738988) index="0" unique_id=2073900832]
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/position = Vector3(0, 0.26847926, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/4/rotation = Quaternion(-0.55313534, -0.05678078, -0.6372435, 0.53360856)
+bones/5/rotation = Quaternion(2.716317e-08, -5.6171668e-08, -0.51552504, 0.8568745)
+bones/7/rotation = Quaternion(-0.3218274, -0.33693388, 0.15058321, 0.8719102)
+bones/8/rotation = Quaternion(0.00073666184, 0.00073665316, -0.7043974, 0.70980513)
+bones/9/rotation = Quaternion(-0.6115924, 0.07721741, 0.6127784, 0.4944643)
+bones/10/rotation = Quaternion(9.530415e-09, 5.4382138e-08, 0.5378938, 0.84301263)
+bones/12/rotation = Quaternion(-0.32077846, 0.31313786, -0.23272337, 0.8630676)
+bones/13/rotation = Quaternion(0.0023453159, 0.002762435, 0.70466715, 0.7095288)
+bones/14/rotation = Quaternion(-5.8060775e-11, -0.0313417, -1.8801205e-09, 0.99950874)
+bones/15/rotation = Quaternion(0.99038947, 0.08345833, 0.07814664, 0.07782366)
+bones/16/rotation = Quaternion(0.37060297, 6.277751e-08, -2.5662118e-07, 0.9287914)
+bones/17/rotation = Quaternion(-0.60869044, -0.20227839, 0.07229924, 0.763775)
+bones/18/rotation = Quaternion(-9.740644e-09, 0.92035496, -0.3910841, 7.8309014e-08)
+bones/19/rotation = Quaternion(0.99241704, -0.03278987, 0.030038832, 0.11459037)
+bones/20/rotation = Quaternion(0.41733444, -6.026851e-08, 2.9050204e-07, 0.908753)
+bones/21/rotation = Quaternion(-0.63569045, 0.11287664, -0.021273986, 0.7633505)
+bones/22/rotation = Quaternion(3.0359093e-08, 0.92035496, -0.3910841, -6.9533804e-08)
+bones/23/rotation = Quaternion(0.70710677, -2.2930195e-07, -4.6055188e-08, 0.70710677)
+bones/24/position = Vector3(0.1455708, 0.01871304, 0.1477308)
+bones/24/rotation = Quaternion(-0.70710677, -7.05285e-08, -7.052848e-08, 0.70710677)
+bones/25/rotation = Quaternion(9.65792e-09, 1.7795497e-09, 0.9857191, -0.16839801)
+bones/26/position = Vector3(-1.8755522e-08, 0.1536744, -3.72348e-09)
+bones/26/rotation = Quaternion(-1.0127301e-07, 0.39108405, 0.92035496, -3.35091e-08)
+bones/27/position = Vector3(6.1847163e-09, 0.11926801, -1.7349361e-09)
+bones/28/rotation = Quaternion(1, -2.33136e-09, 1.99777e-07, -1.34211e-15)
+bones/30/rotation = Quaternion(0.70710677, -3.8238483e-08, 1.4500895e-07, 0.70710677)
+bones/31/rotation = Quaternion(-0.70710677, -7.052848e-08, -7.05285e-08, 0.70710677)
+bones/32/rotation = Quaternion(-5.835892e-09, 6.438371e-10, 0.9948094, 0.10175604)
+bones/33/position = Vector3(-8.026717e-09, 0.1536744, -1.8067801e-15)
+bones/33/rotation = Quaternion(-1.0579601e-07, 0.39108405, 0.92035496, -2.5864297e-08)
+bones/35/rotation = Quaternion(1, 3.76526e-09, 1.94879e-07, 7.4505797e-09)
+bones/37/rotation = Quaternion(-0.70710677, -7.279509e-08, -7.279509e-08, 0.70710677)
+bones/38/position = Vector3(0.3750048, 0.5601284, -0.04149888)
+bones/38/rotation = Quaternion(0.794627, -1.2665987e-07, 0.6070979, -5.960464e-08)
+bones/39/rotation = Quaternion(-0.70710677, -7.279509e-08, -7.279509e-08, 0.70710677)
+bones/40/position = Vector3(-0.3678072, 0.5601284, 0.04301064)
+bones/40/rotation = Quaternion(0.7582527, 1.8253914e-07, -0.6519608, 1.1175877e-08)
+
+[node name="handslot_l" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Mage/CharacterMesh/Rig/Skeleton3D" index="0" unique_id=1303946804]
+transform = Transform3D(4.5262277e-07, 0.26286337, 0.964833, 0.9999686, -0.007648587, 0.0020834762, 0.007927378, 0.9648026, -0.26285502, 0.3653478, 0.45116645, -0.012449765)
+
+[node name="handslot_r" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Mage/CharacterMesh/Rig/Skeleton3D" index="1" unique_id=1909478327]
+transform = Transform3D(0.0016393157, -0.1570263, -0.98759323, -0.9999762, -0.0068766577, -0.0005663435, -0.0067025595, 0.9875705, -0.15703392, -0.3531211, 0.45444676, 0.07763757)
+
+[node name="head" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Mage/CharacterMesh/Rig/Skeleton3D" index="2" unique_id=691737407]
+transform = Transform3D(0.99972034, -1.4014464e-09, 0.023646567, 1.3934258e-09, 1, 3.5568737e-10, -0.023646567, -3.2263822e-10, 0.99972034, -3.0987815e-09, 0.8702288, 1.5031717e-16)
+
+[node name="chest" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Mage/CharacterMesh/Rig/Skeleton3D" index="3" unique_id=719697816]
+transform = Transform3D(0.9962748, -5.1496194e-09, 0.0862352, 5.1304365e-09, 1, 4.4407822e-10, -0.0862352, 2.4980018e-16, 0.9962748, -2.1021571e-09, 0.6766952, 1.0197243e-16)
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/World/Player/CameraPivot" parent_id_path=PackedInt32Array(1652226877, 487482208) index="0" unique_id=1096391987]
 far = 100000.0
@@ -742,6 +812,42 @@ transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0,
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_72hat")
 
+[node name="GreenLand" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1642437405 instance=ExtResource("5_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 95.76771, -0.09200835, 53.91232)
+
+[node name="water" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=65907886 instance=ExtResource("6_j3sk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.999996)
+
+[node name="water2" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=289646120 instance=ExtResource("6_j3sk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.999996)
+
+[node name="GreenLand2" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=2121822027 instance=ExtResource("5_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 95.76771, -0.09200835, 63.91232)
+
+[node name="water" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand2" unique_id=1580024958 instance=ExtResource("6_j3sk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.999996)
+
+[node name="water2" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand2" unique_id=71396207 instance=ExtResource("6_j3sk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.999996)
+
+[node name="GreenLand3" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1270545125 instance=ExtResource("5_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 95.76771, -0.09200835, 73.912315)
+
+[node name="water" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand3" unique_id=1483344660 instance=ExtResource("6_j3sk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.999996)
+
+[node name="water2" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand3" unique_id=1399762286 instance=ExtResource("6_j3sk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.999996)
+
+[node name="GreenLand4" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=45546618 instance=ExtResource("5_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 105.76771, -0.09200835, 53.91232)
+
+[node name="GreenLand5" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=622548331 instance=ExtResource("5_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 105.76771, -0.09200835, 63.91232)
+
+[node name="GreenLand6" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=121405112 instance=ExtResource("5_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 105.76771, -0.09200835, 73.912315)
+
 [node name="Env" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=1664340564]
 
 [node name="Trees" type="Node3D" parent="SubViewportContainer/SubViewport/World/Env" unique_id=1098641691]
@@ -845,7 +951,7 @@ transform = Transform3D(0.9324122, 0, -0.3613967, 0, 1, 0, 0.3613967, 0, 0.93241
 transform = Transform3D(-0.45663217, 0, -0.8896556, 0, 1, 0, 0.8896556, 0, -0.45663217, 14.765188, 0, 8.580262)
 
 [node name="tree_5" parent="SubViewportContainer/SubViewport/World/TEST/Trees2" unique_id=496004065 instance=ExtResource("5_gfl13")]
-transform = Transform3D(-0.2075944, 0, -1.2681205, 0, 1.285, 0, 1.2681205, 0, -0.2075944, -2.2149506, 0, -6.011359)
+transform = Transform3D(-0.2075944, 0, -1.2681205, 0, 1.285, 0, 1.2681205, 0, -0.2075944, -2.214951, 0, -6.01136)
 
 [node name="Rock4" parent="SubViewportContainer/SubViewport/World/TEST" unique_id=1546632765 instance=ExtResource("6_e2fbs")]
 transform = Transform3D(-0.09139454, 0.6009481, 0.7940458, 0.3075918, -0.7413541, 0.5964739, 0.9471191, 0.29875645, -0.1170908, 10.061528, -0.78558123, 68.920105)
