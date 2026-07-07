@@ -91,3 +91,11 @@ wind_strength={
 "type": "float",
 "value": 0.4
 }
+wind_intensity={
+"type": "float",
+"value": 0.075
+}
+player_position={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}

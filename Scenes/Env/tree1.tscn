@@ -128,6 +128,11 @@ shadow_mesh = SubResource("ArrayMesh_udeb5")
 radius = 1.5107422
 height = 4.813965
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_bjqgx"]
+top_radius = 3.567871
+bottom_radius = 3.567871
+height = 0.099365234
+
 [node name="tree_1" type="Node3D" unique_id=528576797]
 
 [node name="trunk" type="MeshInstance3D" parent="." unique_id=212351277]
@@ -154,3 +159,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=880547533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1433105, 0)
 shape = SubResource("CapsuleShape3D_bjqgx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=464690884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.53596, 0)
+cast_shadow = 3
+mesh = SubResource("CylinderMesh_bjqgx")
