@@ -115,7 +115,6 @@ radius = 0.9863281
 height = 4.677124
 
 [node name="tree_2" type="Node3D" unique_id=184090581]
-transform = Transform3D(1.2850001, 0, 0, 0, 1.285, 0, 0, 0, 1.2850001, 0, 0, 0)
 
 [node name="trunk" type="MeshInstance3D" parent="." unique_id=1808787863]
 transform = Transform3D(1.4963753, 0, 0, 0, 1, 0, 0, 0, 1.4963753, 0, 1.0084579, 0)
