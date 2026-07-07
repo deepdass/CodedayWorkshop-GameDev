@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://u1nuoyclw43e"]
 
 [ext_resource type="Shader" uid="uid://bifltg3r6fjhh" path="res://Shaders/ground_shader.gdshader" id="1_4xied"]
+[ext_resource type="Script" uid="uid://s2kfhudsm338" path="res://Scripts/manager.gd" id="1_pw6c3"]
 [ext_resource type="ArrayMesh" uid="uid://dii43dejxwbal" path="res://Assets/Meshes/grass_plane_mesh.res" id="2_pw6c3"]
 [ext_resource type="ArrayMesh" uid="uid://cmj5tvjjvysjm" path="res://Assets/Meshes/grassTall_plane_mesh.res" id="3_djgpu"]
 [ext_resource type="ArrayMesh" uid="uid://dp5c3nqdvnsv0" path="res://Assets/Meshes/flower.res" id="4_tnm7e"]
@@ -301,30 +302,171 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 3
 mouse_target = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1316484370]
 handle_input_locally = false
-size = Vector2i(288, 162)
+size = Vector2i(384, 216)
 render_target_update_mode = 4
 
 [node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=913012999]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Ground" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World" unique_id=1659099843]
+[node name="Manager" type="Node" parent="SubViewportContainer/SubViewport/World" unique_id=1582070962]
+script = ExtResource("1_pw6c3")
+
+[node name="Landscape" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=1593045715]
+
+[node name="Ground" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1659099843]
 transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, 1.9124155, 0, 0)
 mesh = SubResource("PlaneMesh_6el2q")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Ground" unique_id=1456028852]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground" unique_id=1456028852]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Ground/StaticBody3D" unique_id=1716248602]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground/StaticBody3D" unique_id=1716248602]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
 shape = SubResource("BoxShape3D_cl46v")
 
-[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Ground" unique_id=768039423]
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground" unique_id=768039423]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1179498058]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, 1.9124168, 0, 31.271526)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground2" unique_id=977766886]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground2/StaticBody3D" unique_id=920473662]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground2" unique_id=383010991]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=842204009]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, 1.9124142, 0, -31.22953)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground3" unique_id=195119954]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground3/StaticBody3D" unique_id=2133132583]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground3" unique_id=748436496]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground4" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=2117052779]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, -43.91285, 0, 2.003086e-06)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground4" unique_id=1371291224]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground4/StaticBody3D" unique_id=729183970]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground4" unique_id=954384071]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground5" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1193607871]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, -43.91285, 0, 31.271528)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground5" unique_id=1689522234]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground5/StaticBody3D" unique_id=821529775]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground5" unique_id=1566696406]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground6" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=223570508]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, -43.91285, 0, -31.229528)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground6" unique_id=595111500]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground6/StaticBody3D" unique_id=687909649]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground6" unique_id=1625429683]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground7" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=923554644]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, 47.776413, 0, -2.004779e-06)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground7" unique_id=5097094]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground7/StaticBody3D" unique_id=189778102]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground7" unique_id=1340101386]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground8" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1558230449]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, 47.776413, 0, 31.271524)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground8" unique_id=1746278856]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground8/StaticBody3D" unique_id=825159886]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground8" unique_id=675307460]
+transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_72hat")
+
+[node name="Ground9" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=1431725533]
+transform = Transform3D(22.956, 0, 0, 0, 1, 0, 0, 0, 15.653, 47.776413, 0, -31.229532)
+mesh = SubResource("PlaneMesh_6el2q")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_o35ae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground9" unique_id=1729327598]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground9/StaticBody3D" unique_id=1282853345]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 1.7053026e-13, 0, 1, -4.5239925e-05, -0.44739747, -3.2633543e-05)
+shape = SubResource("BoxShape3D_cl46v")
+
+[node name="MultiMeshGrass" type="MultiMeshInstance3D" parent="SubViewportContainer/SubViewport/World/Landscape/Ground9" unique_id=869707249]
 transform = Transform3D(0.043561596, 0, -2.220446e-16, 0, 1, 0, 2.220446e-16, 0, 0.06388552, -0.08330788, 0, 2.9802322e-08)
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_72hat")
@@ -374,11 +516,11 @@ skeleton = NodePath("")
 [node name="tree3" parent="SubViewportContainer/SubViewport/World" unique_id=2100219487 instance=ExtResource("9_6m4iw")]
 transform = Transform3D(-0.31998467, 0, -0.94742274, 0, 1, 0, 0.94742274, 0, -0.31998467, 4.1742744, 0, -0.4658438)
 
-[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree3" index="0"]
+[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree3" index="0" unique_id=212351277]
 transform = Transform3D(1.5337995, 0, 0, 0, 1, 0, 0, 0, 1.4856852, 0, 1.0084579, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_75b2y")
 
-[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree3" index="1"]
+[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree3" index="1" unique_id=1315193709]
 cast_shadow = 0
 surface_material_override/0 = SubResource("ShaderMaterial_cl46v")
 
@@ -391,11 +533,11 @@ skeleton = NodePath("")
 [node name="tree6" parent="SubViewportContainer/SubViewport/World" unique_id=669222530 instance=ExtResource("9_6m4iw")]
 transform = Transform3D(0.9324122, 0, -0.3613967, 0, 1, 0, 0.3613967, 0, 0.9324122, -19.611362, 0, -1.9959227)
 
-[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree6" index="0"]
+[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree6" index="0" unique_id=212351277]
 transform = Transform3D(1.5337995, 0, 0, 0, 1, 0, 0, 0, 1.4856852, 0, 1.0084579, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_75b2y")
 
-[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree6" index="1"]
+[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree6" index="1" unique_id=1315193709]
 cast_shadow = 0
 surface_material_override/0 = SubResource("ShaderMaterial_cl46v")
 
@@ -408,11 +550,11 @@ skeleton = NodePath("")
 [node name="tree7" parent="SubViewportContainer/SubViewport/World" unique_id=474590263 instance=ExtResource("9_6m4iw")]
 transform = Transform3D(0.9324122, 0, -0.3613967, 0, 1, 0, 0.3613967, 0, 0.9324122, -6.5054035, 0, 13.240354)
 
-[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree7" index="0"]
+[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree7" index="0" unique_id=212351277]
 transform = Transform3D(1.5337995, 0, 0, 0, 1, 0, 0, 0, 1.4856852, 0, 1.0084579, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_75b2y")
 
-[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree7" index="1"]
+[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree7" index="1" unique_id=1315193709]
 cast_shadow = 0
 surface_material_override/0 = SubResource("ShaderMaterial_twefy")
 
@@ -425,11 +567,11 @@ skeleton = NodePath("")
 [node name="tree5" parent="SubViewportContainer/SubViewport/World" unique_id=516760732 instance=ExtResource("9_6m4iw")]
 transform = Transform3D(-0.45663217, 0, -0.8896556, 0, 1, 0, 0.8896556, 0, -0.45663217, 14.765188, 0, 8.580262)
 
-[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree5" index="0"]
+[node name="trunk" parent="SubViewportContainer/SubViewport/World/tree5" index="0" unique_id=212351277]
 transform = Transform3D(1.5337995, 0, 0, 0, 1, 0, 0, 0, 1.4856852, 0, 1.0084579, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_75b2y")
 
-[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree5" index="1"]
+[node name="leaves_001" parent="SubViewportContainer/SubViewport/World/tree5" index="1" unique_id=1315193709]
 cast_shadow = 0
 surface_material_override/0 = SubResource("ShaderMaterial_8bexw")
 
@@ -499,3 +641,5 @@ compositor = SubResource("Compositor_75b2y")
 [editable path="SubViewportContainer/SubViewport/World/rock22"]
 [editable path="SubViewportContainer/SubViewport/World/rock24"]
 [editable path="SubViewportContainer/SubViewport/World/rock23"]
+[editable path="SubViewportContainer/SubViewport/World/Player"]
+[editable path="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car"]
