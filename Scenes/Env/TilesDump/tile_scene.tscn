@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bu8gorn1nnti8"]
+
+[ext_resource type="PackedScene" uid="uid://e67jqy5bvn1k" path="res://Scenes/Env/Tiles/green_land.tscn" id="1_dvnbm"]
+[ext_resource type="PackedScene" uid="uid://8eas0on0nodq" path="res://Scenes/Env/Tiles/water.tscn" id="2_vkcdt"]
+
+[node name="TileScene" type="Node3D" unique_id=346174463]
+
+[node name="GreenLand" parent="." unique_id=1642437405 instance=ExtResource("1_dvnbm")]
+
+[node name="water" parent="." unique_id=65907886 instance=ExtResource("2_vkcdt")]

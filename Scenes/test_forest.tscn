@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dxghou5p21myx" path="res://Player/Player.tscn" id="2_3ujme"]
 [ext_resource type="Shader" uid="uid://bifltg3r6fjhh" path="res://Shaders/ground_shader.gdshader" id="3_6goud"]
 [ext_resource type="ArrayMesh" uid="uid://dii43dejxwbal" path="res://Assets/Meshes/grass_plane_mesh.res" id="4_u5b24"]
-[ext_resource type="PackedScene" uid="uid://e67jqy5bvn1k" path="res://Scenes/Env/green_land.tscn" id="5_8uvyf"]
-[ext_resource type="PackedScene" uid="uid://8eas0on0nodq" path="res://Scenes/Env/water.tscn" id="6_dul40"]
+[ext_resource type="PackedScene" uid="uid://e67jqy5bvn1k" path="res://Scenes/Env/Tiles/green_land.tscn" id="5_8uvyf"]
+[ext_resource type="PackedScene" uid="uid://8eas0on0nodq" path="res://Scenes/Env/Tiles/water.tscn" id="6_dul40"]
 [ext_resource type="PackedScene" uid="uid://br1ogaxeo4ppc" path="res://Scenes/Env/tree1.tscn" id="7_kbra6"]
 [ext_resource type="PackedScene" uid="uid://bd8xvyw27mlfp" path="res://Scenes/Env/tree2.tscn" id="8_qylsb"]
 [ext_resource type="PackedScene" uid="uid://bptt6vsaju0qs" path="res://Scenes/Env/Rock.tscn" id="9_nlkni"]
@@ -948,7 +948,7 @@ transform = Transform3D(0.9324122, 0, -0.3613967, 0, 1, 0, 0.3613967, 0, 0.93241
 transform = Transform3D(0.9324122, 0, -0.3613967, 0, 1, 0, 0.3613967, 0, 0.9324122, -6.5054035, 0, 13.240354)
 
 [node name="tree_4" parent="SubViewportContainer/SubViewport/World/TEST/Trees2" unique_id=1564556831 instance=ExtResource("7_kbra6")]
-transform = Transform3D(-0.45663217, 0, -0.8896556, 0, 1, 0, 0.8896556, 0, -0.45663217, 14.765188, 0, 8.580262)
+transform = Transform3D(-0.45663217, 0, -0.8896556, 0, 1, 0, 0.8896556, 0, -0.45663217, 15.2076435, 0, 8.338409)
 
 [node name="tree_5" parent="SubViewportContainer/SubViewport/World/TEST/Trees2" unique_id=496004065 instance=ExtResource("8_qylsb")]
 transform = Transform3D(-0.2075944, 0, -1.2681205, 0, 1.285, 0, 1.2681205, 0, -0.2075944, -2.214951, 0, -6.01136)

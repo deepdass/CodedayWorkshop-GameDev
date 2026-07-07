@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 17.0
+const SPEED = 7.0
 const JUMP_VELOCITY = 3.4
 
 @onready var visuals: Node3D = $Visuals
