@@ -47,6 +47,7 @@ size = Vector3(10, 1.081604, 10)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1656460266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38207284, 0)
+layers = 262145
 mesh = SubResource("BoxMesh_nwvws")
 
 [node name="GreenLand" parent="MeshInstance3D2" unique_id=1642437405 instance=ExtResource("1_y237u")]
