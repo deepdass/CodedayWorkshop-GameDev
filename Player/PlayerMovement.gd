@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 7.0
-const JUMP_VELOCITY = 3.4
+const JUMP_VELOCITY = 5.4
 
 @onready var visuals: Node3D = $Visuals
 
@@ -25,12 +25,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
 
+
 func _physics_process(delta: float) -> void:
 	
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 1.5
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():

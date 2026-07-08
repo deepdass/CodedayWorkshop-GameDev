@@ -10,6 +10,16 @@ extends Node
 
 @export var lag_speed: float = 5.0
 
+
+func _process(delta: float) -> void:
+	
+	if (Input.is_action_just_pressed("ESC")):
+		get_tree().quit()
+		
+	if (Input.is_action_just_pressed("Restart")):
+		get_tree().reload_current_scene()
+
+
 func _physics_process(delta: float) -> void:
 	var weight = 1.0 - exp(-lag_speed * delta)
 	var target = player.position
