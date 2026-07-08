@@ -215,7 +215,7 @@ void fragment() {
 	vec3 view_dir = mix(normalize(VIEW), vec3(0.0, 0.0, 1.0), is_ortho);
 	
 	#ifdef FRESNEL
-	float fresnel_value = fresnel(NORMAL, VIEW);
+	float fresnel_value = fresnel(NORMAL, view_dir);
 	#endif
 
 	float time_factor = TIME * scroll_speed * wind_intens_factor;
@@ -310,21 +310,26 @@ void fragment() {
 	float current_stepD = 0.0;
 	float current_depth = 0.0;
 	float alpha_hit = 0.0;
-	for(float i = 0.01; i < ssr_travel; i++) {
-		current_stepD = mix(ssr_resolution_near, ssr_resolution_far,float(i) / float(ssr_travel));
+	float dist_travelled = 0.0;
+	for (int step = 0; step < 256; step++) {
+		if (dist_travelled >= ssr_travel) break;
+		current_stepD = mix(ssr_resolution_near, ssr_resolution_far, dist_travelled / ssr_travel);
 		current_view_pos += reflacted_path * current_stepD;
 		current_screen_pos = get_uv_from_view_position(current_view_pos, PROJECTION_MATRIX);
-		if (!in_bounds(current_screen_pos)) {break;}
+		if (!in_bounds(current_screen_pos)) { break; }
+		
+		vec2 edge_fade_uv = 1.0 - abs(current_screen_pos * 2.0 - 1.0);
+		float edge_fade = clamp(min(edge_fade_uv.x, edge_fade_uv.y) * 4.0, 0.0, 1.0);
 		current_depth = get_view_position_from_uv(current_screen_pos, texture(depth_texture, current_screen_pos).x, INV_PROJECTION_MATRIX).z - current_view_pos.z;
 
 		if (current_depth > -0.0001 && current_depth <= ssr_tolerance * current_stepD) {
 			sampled_color = textureLod(screen_texture, current_screen_pos, 0.5).rgb;
 			vec2 ruv = 1.0 - abs(current_screen_pos * 2.0 - 1.0);
 			ruv = pow(ruv, vec2(0.5));
-			alpha_hit = clamp(min(ruv.x, ruv.y), 0.0, 1.0);
+			alpha_hit = pow(edge_fade, 0.5);
 			break;
 		}
-		i += current_stepD;
+		dist_travelled += current_stepD;
 	}
 	#endif
 
