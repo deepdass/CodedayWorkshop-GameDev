@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://ddnvour5ytb6n" path="res://Scripts/SpawnCloud.gd" id="15_djgpu"]
 [ext_resource type="PackedScene" uid="uid://bg7xvsn2f663n" path="res://Scenes/Env/sphere_cloud.tscn" id="16_djgpu"]
 [ext_resource type="PackedScene" uid="uid://cqjkyry35kkqa" path="res://Scenes/Env/cloud.tscn" id="16_pw6c3"]
+[ext_resource type="PackedScene" uid="uid://in5kn62g2jfk" path="res://_AttackAssets/VFXs/Fireball/FireBall.tscn" id="18_tnm7e"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_twefy"]
 transform_format = 1
@@ -1006,6 +1007,9 @@ directional_shadow_pancake_size = 400.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1195914966]
 environment = SubResource("Environment_igfsh")
 compositor = SubResource("Compositor_75b2y")
+
+[node name="mage_projectile" parent="." unique_id=1369663050 instance=ExtResource("18_tnm7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.358546, 1.0194105, -2.2419097)
 
 [editable path="SubViewportContainer/SubViewport/World/Player"]
 [editable path="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car"]
