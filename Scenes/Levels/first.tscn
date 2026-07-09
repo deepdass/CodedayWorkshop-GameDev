@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://g7eucol0qxet"]
+
+[ext_resource type="Script" uid="uid://bpwmga6am7t07" path="res://Scripts/LevelScript/first.gd" id="1_62p2e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjqgx"]
+size = Vector3(7, 0.602417, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjqgx"]
+size = Vector3(7, 10, 7)
+
+[sub_resource type="Animation" id="Animation_epf88"]
+resource_name = "PanningToDoStuff"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(42, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_pkjvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jcrtl"]
+_data = {
+&"PanningToDoStuff": SubResource("Animation_epf88"),
+&"RESET": SubResource("Animation_pkjvy")
+}
+
+[node name="First" type="Node3D" unique_id=874457881]
+script = ExtResource("1_62p2e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=528080016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1987915, 0)
+mesh = SubResource("BoxMesh_bjqgx")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=1729548430]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=8956071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+shape = SubResource("BoxShape3D_bjqgx")
+
+[node name="CameraPivot" type="Node3D" parent="MeshInstance3D" unique_id=2029138974]
+
+[node name="Camera3D" type="Camera3D" parent="MeshInstance3D/CameraPivot" unique_id=1879776606]
+transform = Transform3D(-2.1855692e-08, 0.86602545, -0.49999997, 3.7855173e-08, 0.49999997, 0.86602545, 1, 1.7763568e-15, -4.371139e-08, -18, 32, 0)
+current = true
+fov = 30.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D/CameraPivot" unique_id=1125047727]
+libraries/ = SubResource("AnimationLibrary_jcrtl")
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
