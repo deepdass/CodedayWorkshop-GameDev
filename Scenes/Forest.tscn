@@ -4,13 +4,19 @@
 [ext_resource type="ArrayMesh" uid="uid://cmj5tvjjvysjm" path="res://Assets/Meshes/grassTall_plane_mesh.res" id="3_djgpu"]
 [ext_resource type="PackedScene" uid="uid://br1ogaxeo4ppc" path="res://Scenes/Env/tree1.tscn" id="4_j3sk6"]
 [ext_resource type="ArrayMesh" uid="uid://dp5c3nqdvnsv0" path="res://Assets/Meshes/flower.res" id="4_tnm7e"]
+[ext_resource type="PackedScene" uid="uid://bkfbyo1tdor2q" path="res://Scenes/Env/Tiles/Small_green_land.tscn" id="4_wjun0"]
 [ext_resource type="PackedScene" uid="uid://bd8xvyw27mlfp" path="res://Scenes/Env/tree2.tscn" id="5_gfl13"]
 [ext_resource type="PackedScene" uid="uid://bptt6vsaju0qs" path="res://Scenes/Env/Rock.tscn" id="6_e2fbs"]
 [ext_resource type="PackedScene" uid="uid://e67jqy5bvn1k" path="res://Scenes/Env/Tiles/green_land.tscn" id="10_e2fbs"]
 [ext_resource type="PackedScene" uid="uid://8eas0on0nodq" path="res://Scenes/Env/Tiles/water.tscn" id="11_wjun0"]
 [ext_resource type="Texture2D" uid="uid://dey5onb6mwp3f" path="res://Assets/Textures/leaf_particle.png" id="13_vr0cu"]
+[ext_resource type="PackedScene" uid="uid://cokuwbr1cit2o" path="res://Scenes/Env/cloud_2.tscn" id="14_4xied"]
 [ext_resource type="Script" uid="uid://brcimd12tx3dm" path="res://Scripts/edge_detection_compositor.gd" id="14_sv6bm"]
+[ext_resource type="PackedScene" uid="uid://g7eucol0qxet" path="res://Scenes/Levels/first.tscn" id="15_4xied"]
 [ext_resource type="PackedScene" uid="uid://dxghou5p21myx" path="res://Player/Player.tscn" id="15_cjp06"]
+[ext_resource type="Script" uid="uid://ddnvour5ytb6n" path="res://Scripts/SpawnCloud.gd" id="15_djgpu"]
+[ext_resource type="PackedScene" uid="uid://bg7xvsn2f663n" path="res://Scenes/Env/sphere_cloud.tscn" id="16_djgpu"]
+[ext_resource type="PackedScene" uid="uid://cqjkyry35kkqa" path="res://Scenes/Env/cloud.tscn" id="16_pw6c3"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_twefy"]
 transform_format = 1
@@ -123,6 +129,16 @@ material = SubResource("ShaderMaterial_gpe07")
 subdivide_depth = 3
 orientation = 1
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjqgx"]
+size = Vector3(400, 1, 400)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djgpu"]
+albedo_color = Color(0, 0.8156863, 0.8352941, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bjqgx"]
+material = SubResource("StandardMaterial3D_djgpu")
+size = Vector2(1500, 1500)
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_km8ws"]
 sky_top_color = Color(0.5635199, 0.39360002, 0.96, 1)
 sky_horizon_color = Color(0.53690004, 0.6799216, 0.91, 1)
@@ -177,6 +193,9 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 
 [node name="Manager" type="Node" parent="SubViewportContainer/SubViewport/World" unique_id=1582070962]
 script = ExtResource("1_pw6c3")
+
+[node name="First" parent="SubViewportContainer/SubViewport/World" unique_id=874457881 instance=ExtResource("15_4xied")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 63, 1.7289679, -4.000003)
 
 [node name="Player" parent="SubViewportContainer/SubViewport/World" unique_id=1652226877 instance=ExtResource("15_cjp06")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -250,7 +269,7 @@ transform = Transform3D(0.99972034, -1.4014464e-09, 0.023646567, 1.3934258e-09, 
 transform = Transform3D(0.9962748, -5.1496194e-09, 0.0862352, 5.1304365e-09, 1, 4.4407822e-10, -0.0862352, 2.4980018e-16, 0.9962748, -2.1021571e-09, 0.6766952, 1.0197243e-16)
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/World/Player/CameraPivot" parent_id_path=PackedInt32Array(1652226877, 487482208) index="0" unique_id=1096391987]
-far = 100000.0
+far = 550.0
 
 [node name="Landscape" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=1593045715]
 
@@ -287,7 +306,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, -5.0000005)
 
 [node name="GreenLand11" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=94867703 instance=ExtResource("10_e2fbs")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.98938, -0.011604786, 4.9971547)
 
 [node name="GreenLand19" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=114513339 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9999995, 0, 15)
@@ -346,6 +365,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 
 [node name="GreenLand32" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=518520976 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 0, -15.000002)
 
+[node name="GreenLand58" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1147105977 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 0, -25.000002)
+
+[node name="GreenLand59" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=849148135 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 0, -15.000003)
+
 [node name="GreenLand33" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1654619758 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35, 0, -15.000002)
 
@@ -364,8 +389,86 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 
 [node name="GreenLand42" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1446261876 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 0, 4.999998)
 
+[node name="GreenLand52" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=481245806 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 1, -5.0000024)
+
+[node name="GreenLand53" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1593989975 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 1, 4.9999976)
+
+[node name="GreenLand61" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1760729102 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 1, 14.999997)
+
+[node name="GreenLand54" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1991558657 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, -5.000003)
+
+[node name="GreenLand55" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=253552138 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, 4.999997)
+
+[node name="GreenLand60" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1889483696 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, 14.999997)
+
+[node name="GreenLand65" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=311792916 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 1, 34.999996)
+
+[node name="GreenLand66" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1855328343 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55.000004, 1, 44.999996)
+
+[node name="GreenLand67" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1627071029 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 1, 44.999996)
+
+[node name="GreenLand70" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1147958536 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 1, 24.999996)
+
+[node name="GreenLand71" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=485205293 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 1, 14.999997)
+
+[node name="GreenLand72" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1009676951 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 1, 4.9999967)
+
+[node name="GreenLand75" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=999102924 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 85, 1, 24.999996)
+
+[node name="GreenLand83" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1417785264 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 85, 2, 34.999996)
+
+[node name="GreenLand91" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1598710419 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 85, 2, 44.999996)
+
+[node name="GreenLand84" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1327114668 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 95, 2, 34.999996)
+
+[node name="GreenLand85" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1155175084 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 95, 2, 24.999996)
+
+[node name="GreenLand86" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=2059014744 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 95, 2, 14.999996)
+
+[node name="GreenLand76" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1161692335 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 85, 1, 14.999996)
+
+[node name="GreenLand77" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=756305686 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 85, 1, 4.999996)
+
+[node name="GreenLand73" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=873379105 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 1, -5.0000033)
+
+[node name="GreenLand69" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=75800092 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, 54.999996)
+
+[node name="GreenLand74" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=249800964 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 1, -15.000003)
+
+[node name="GreenLand63" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=948347051 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 1, 24.999998)
+
+[node name="GreenLand64" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=888349147 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, 24.999998)
+
 [node name="GreenLand43" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=201245445 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 0, 14.999998)
+
+[node name="GreenLand57" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1624617017 instance=ExtResource("10_e2fbs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, -15.000003)
 
 [node name="GreenLand34" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=59951075 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.999996, 0, -45)
@@ -402,6 +505,54 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.
 
 [node name="GreenLand18" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1755545147 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.9999995, 0, -15)
+
+[node name="GreenLand16" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1326655404 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, -3.715468e-06)
+
+[node name="GreenLand79" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1558832808 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.000004, 1, 44.999996)
+
+[node name="GreenLand21" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=206188403 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, -5.000004)
+
+[node name="GreenLand80" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=242570495 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.000004, 1, 54.999996)
+
+[node name="GreenLand82" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=798171727 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 1, 54.999996)
+
+[node name="GreenLand87" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=288742687 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 1, 39.999996)
+
+[node name="GreenLand89" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1856753891 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2, 39.999996)
+
+[node name="GreenLand90" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=3706048 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2, 44.999996)
+
+[node name="GreenLand88" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=867834181 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 1, 34.999996)
+
+[node name="GreenLand81" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=136948654 instance=ExtResource("4_wjun0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.000004, 1, 47.999996)
+
+[node name="GreenLand56" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1862315040 instance=ExtResource("4_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 60.002243, 1, -19.977587)
+
+[node name="GreenLand78" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1098328655 instance=ExtResource("4_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 65.00224, 1, -19.977587)
+
+[node name="SmallGreenLand" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1149504186 instance=ExtResource("4_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 0, 19.999998)
+
+[node name="SmallGreenLand2" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=93807703 instance=ExtResource("4_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 50, 1, 19.999998)
+
+[node name="SmallGreenLand3" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1069844087 instance=ExtResource("4_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 50, 1, 24.999998)
+
+[node name="SmallGreenLand4" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=1705023248 instance=ExtResource("4_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45, 1, 24.999998)
 
 [node name="WaterLand" type="Node3D" parent="SubViewportContainer/SubViewport/World/Landscape" unique_id=651068031]
 
@@ -456,6 +607,18 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9
 [node name="water10" parent="SubViewportContainer/SubViewport/World/Landscape/WaterLand" unique_id=389313319 instance=ExtResource("11_wjun0")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.0000014, 0, 35)
 
+[node name="water18" parent="SubViewportContainer/SubViewport/World/Landscape/WaterLand" unique_id=656273544 instance=ExtResource("11_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 55, 1, 34.999996)
+
+[node name="water19" parent="SubViewportContainer/SubViewport/World/Landscape/WaterLand" unique_id=1837413588 instance=ExtResource("11_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, 34.999996)
+
+[node name="water21" parent="SubViewportContainer/SubViewport/World/Landscape/WaterLand" unique_id=785559611 instance=ExtResource("11_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 70, 1, 34.999996)
+
+[node name="water20" parent="SubViewportContainer/SubViewport/World/Landscape/WaterLand" unique_id=2095984906 instance=ExtResource("11_wjun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 65, 1, 44.999996)
+
 [node name="Env" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=1664340564]
 
 [node name="Trees" type="Node3D" parent="SubViewportContainer/SubViewport/World/Env" unique_id=1098641691]
@@ -491,7 +654,7 @@ transform = Transform3D(-0.83232194, 0, 0.5542925, 0, 1, 0, -0.5542925, 0, -0.83
 transform = Transform3D(-0.9266263, 0, -0.59275943, 0, 1.1, 0, 0.59275943, 0, -0.9266263, -15.316293, 0, -36.870487)
 
 [node name="tree_10" parent="SubViewportContainer/SubViewport/World/Env/Trees" unique_id=1032293736 instance=ExtResource("4_j3sk6")]
-transform = Transform3D(-0.52175295, 0, -0.85309654, 0, 0.9236404, 0, 0.85309654, 0, -0.52175295, 34.68371, 0, -9.870489)
+transform = Transform3D(0.65737516, 0, -0.75356334, 0, 0.9236404, 0, 0.75356334, 0, 0.65737516, 34.68371, 0, -9.870489)
 
 [node name="tree_13" parent="SubViewportContainer/SubViewport/World/Env/Trees" unique_id=1760582042 instance=ExtResource("4_j3sk6")]
 transform = Transform3D(0.41958117, 0, -0.9077178, 0, 1, 0, 0.9077178, 0, 0.41958117, 5.683709, -1.0647101, 26.129513)
@@ -783,6 +946,54 @@ lifetime = 10.0
 preprocess = 5.0
 process_material = SubResource("ParticleProcessMaterial_cl46v")
 draw_pass_1 = SubResource("QuadMesh_twefy")
+
+[node name="Cloud" type="Node3D" parent="SubViewportContainer/SubViewport/World/Env" unique_id=1633823655 node_paths=PackedStringArray("spawn_area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -8, 0)
+visible = false
+script = ExtResource("15_djgpu")
+cloud_scenes = Array[PackedScene]([ExtResource("16_pw6c3"), ExtResource("14_4xied"), ExtResource("16_djgpu")])
+spawn_area = NodePath("CollisionShape3D")
+cloud_count = 600
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Env/Cloud" unique_id=1885621681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29, 0)
+shape = SubResource("BoxShape3D_bjqgx")
+
+[node name="skybackground" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/Env/Cloud" unique_id=176691458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -86.074036, 0)
+mesh = SubResource("PlaneMesh_bjqgx")
+
+[node name="HandplacedCloud" type="Node3D" parent="SubViewportContainer/SubViewport/World/Env/Cloud" unique_id=2132778056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 8, 0)
+
+[node name="Cloud6" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=820360227 instance=ExtResource("16_pw6c3")]
+transform = Transform3D(-0.8193365, 0, 0.573313, 0, 1, 0, -0.573313, 0, -0.8193365, 49.17788, -28, -49.20967)
+
+[node name="Cloud5" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=1763904258 instance=ExtResource("16_pw6c3")]
+transform = Transform3D(-0.86602545, 0, 0.49999994, 0, 1, 0, -0.49999994, 0, -0.86602545, 49.152283, -22.596794, 50.761024)
+
+[node name="Cloud8" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=1474259703 instance=ExtResource("16_pw6c3")]
+transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 110.23112, -16.596794, -7.8870344)
+
+[node name="Cloud7" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=998055053 instance=ExtResource("14_4xied")]
+transform = Transform3D(-0.6226915, 0, 0.78246754, 0, 1, 0, -0.78246754, 0, -0.6226915, 79.22986, -18.695782, -37.717155)
+
+[node name="Cloud3" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=1183797566 instance=ExtResource("14_4xied")]
+transform = Transform3D(-0.41671163, 0, -0.9090387, 0, 1, 0, 0.9090387, 0, -0.41671163, 88.29348, -26.131649, 39.0923)
+
+[node name="Cloud9" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=712781834 instance=ExtResource("14_4xied")]
+transform = Transform3D(0.81540215, 0, 0.57889485, 0, 1, 0, -0.57889485, 0, 0.81540215, 111.24072, -13.131649, 58.91175)
+
+[node name="Cloud4" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=810092500 instance=ExtResource("14_4xied")]
+transform = Transform3D(0.36629108, 0, 0.9305003, 0, 1, 0, -0.9305003, 0, 0.36629108, -15.281667, -24.07082, -32.53231)
+
+[node name="SphereCloud" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=909424716 instance=ExtResource("16_djgpu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 50.483635, -14.964089, 31.079649)
+skeleton = NodePath("../../../../../../..")
+
+[node name="SphereCloud2" parent="SubViewportContainer/SubViewport/World/Env/Cloud/HandplacedCloud" unique_id=475362903 instance=ExtResource("16_djgpu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.483633, -21.964088, -60.92035)
+skeleton = NodePath("../../../../../../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=789140690]
 transform = Transform3D(0.1656671, 0.5553553, -0.8149447, 8.3013745e-08, 0.8263636, 0.5631369, 0.98618174, -0.09329332, 0.13690121, 0, 14.548841, 0)

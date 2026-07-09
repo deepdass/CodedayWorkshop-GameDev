@@ -18,12 +18,13 @@ func _process(delta: float) -> void:
 		
 	if (Input.is_action_just_pressed("Restart")):
 		get_tree().reload_current_scene()
+		
+	print(Engine.get_frames_per_second())
 
 
 func _physics_process(delta: float) -> void:
 	var weight = 1.0 - exp(-lag_speed * delta)
 	var target = player.position
-	target.y = camera_pivot.position.y
 	camera_pivot.position = camera_pivot.position.lerp(target, weight)
 	
 	if Input.is_action_just_pressed("zoomIN"):
