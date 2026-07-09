@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bg7xvsn2f663n"]
+
+[ext_resource type="Shader" uid="uid://do848euf8gpnn" path="res://Shaders/Cloud.gdshader" id="1_j2e44"]
+[ext_resource type="Texture2D" uid="uid://dnbldkcba3nhk" path="res://Assets/Meshes/Cloud/noise.tres" id="2_2ke4w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6ihv1"]
+radius = 6.01
+height = 10.033
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgm0g"]
+render_priority = 0
+shader = ExtResource("1_j2e44")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/roughness = 0.0
+shader_parameter/lightSteps = 4.0
+shader_parameter/noise = ExtResource("2_2ke4w")
+
+[node name="SphereCloud" type="MeshInstance3D" unique_id=909424716]
+mesh = SubResource("SphereMesh_6ihv1")
+surface_material_override/0 = SubResource("ShaderMaterial_dgm0g")
