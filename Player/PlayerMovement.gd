@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 27.0
+const SPEED = 7.0
 const JUMP_VELOCITY = 5.4
 
 @onready var visuals: Node3D = $Visuals
@@ -11,6 +11,9 @@ const JUMP_VELOCITY = 5.4
 @onready var mage: Node3D = $Visuals/Mage
 @onready var animation_player: AnimationPlayer = $Visuals/Mage/AnimationPlayer
 @onready var animation_player_car: AnimationPlayer = $Visuals/Car/catbanana/AnimationPlayer
+
+var look_at_me : Vector3
+
 
 func _ready() -> void:
 	if IsMage:
@@ -54,6 +57,8 @@ func _physics_process(delta: float) -> void:
 			animation_player_car.play("metarigAction_001")
 		
 	else:
+		visuals.look_at(look_at_me, Vector3.UP)
+		
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
@@ -61,5 +66,12 @@ func _physics_process(delta: float) -> void:
 			animation_player.play("Idle")
 		else:
 			animation_player_car.seek(0)
-		
+	
+	
+	
 	move_and_slide()
+
+
+func _rotate(where: Vector3) -> void:
+	look_at_me = where
+	
