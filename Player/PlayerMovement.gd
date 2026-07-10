@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func add_coin(CoinAmount : int):
+func add_coin(CoinAmount : int) -> void:
 	TotalCoins += CoinAmount
 	
 

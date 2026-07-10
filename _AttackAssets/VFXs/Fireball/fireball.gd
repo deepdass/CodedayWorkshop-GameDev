@@ -20,15 +20,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if target_node and target_node.has_method("TargetEff"):
 		target_node.TargetEff()
 	
-	if body.has_method("take_damage"):
-		body.take_damage()
-
 	if body is RigidBody3D:
 		var dir : Vector3 = (body.global_position - global_position).normalized()
 		body.apply_impulse(dir * 7000) #magic number: adjust force
 		
-	queue_free()
 	spawn_hiteffect()
+	queue_free()
 
 
 func spawn_hiteffect() -> void:

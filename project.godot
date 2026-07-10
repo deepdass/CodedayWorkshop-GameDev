@@ -26,6 +26,10 @@ window/name="Codeday-GameDev"
 
 enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/smart_planar_reflector/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [input]
 
 Forward={

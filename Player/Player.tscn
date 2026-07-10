@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t8ibh"]
 
-[node name="Player" type="Node3D" unique_id=1652226877]
+[node name="Player" type="Node3D" unique_id=1652226877 groups=["Player"]]
 
 [node name="MovementComp" type="CharacterBody3D" parent="." unique_id=1360391585]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 1, 0)

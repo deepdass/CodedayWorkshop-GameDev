@@ -4,4 +4,5 @@ extends Node3D
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	animation_player.play("PanningToDoStuff")
+	if body.get_parent().is_in_group("Player"):
+		animation_player.play("PanningToDoStuff")
