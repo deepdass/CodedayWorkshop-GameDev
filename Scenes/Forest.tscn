@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cqjkyry35kkqa" path="res://Scenes/Env/cloud.tscn" id="16_pw6c3"]
 [ext_resource type="PackedScene" uid="uid://in5kn62g2jfk" path="res://_AttackAssets/VFXs/Fireball/FireBall.tscn" id="18_tnm7e"]
 [ext_resource type="PackedScene" uid="uid://br483nydnq3u5" path="res://_Gate/Gate.tscn" id="19_j8t0e"]
+[ext_resource type="PackedScene" uid="uid://pvig1l7m2h6q" path="res://_Target/Target.tscn" id="20_08kc0"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_twefy"]
 transform_format = 1
@@ -218,6 +219,7 @@ bones/14/rotation = Quaternion(0.04801238, 0.005915727, 0.0040073604, 0.9988212)
 [node name="Skeleton3D" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Mage/CharacterMesh/Rig" parent_id_path=PackedInt32Array(1652226877, 955432568, 711738988) index="0" unique_id=2073900832]
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/1/position = Vector3(0, 0.26847926, 0)
+bones/1/rotation = Quaternion(-1.1112303e-10, 0.043157812, 2.5724107e-09, 0.99906826)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/4/rotation = Quaternion(-0.55313534, -0.05678078, -0.6372435, 0.53360856)
@@ -254,6 +256,7 @@ bones/35/rotation = Quaternion(1, 3.76526e-09, 1.94879e-07, 7.4505797e-09)
 bones/37/rotation = Quaternion(-0.70710677, -7.279509e-08, -7.279509e-08, 0.70710677)
 bones/38/position = Vector3(0.3750048, 0.5601284, -0.04149888)
 bones/38/rotation = Quaternion(0.794627, -1.2665987e-07, 0.6070979, -5.960464e-08)
+bones/39/position = Vector3(-0.3265248, 0.79686844, -0.42397922)
 bones/39/rotation = Quaternion(-0.70710677, -7.279509e-08, -7.279509e-08, 0.70710677)
 bones/40/position = Vector3(-0.3678072, 0.5601284, 0.04301064)
 bones/40/rotation = Quaternion(0.7582527, 1.8253914e-07, -0.6519608, 1.1175877e-08)
@@ -997,6 +1000,20 @@ skeleton = NodePath("../../../../../../..")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.483633, -21.964088, -60.92035)
 skeleton = NodePath("../../../../../../..")
 
+[node name="stuff" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=401888402]
+
+[node name="door" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=1100382097 instance=ExtResource("19_j8t0e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, 0, -1.57361e-06)
+
+[node name="Target" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=620605259 instance=ExtResource("20_08kc0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.546246, 0.019410491, 2.9181452)
+
+[node name="Target2" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=1090575893 instance=ExtResource("20_08kc0")]
+transform = Transform3D(-0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.7071069, 8.546246, 0.019410491, 5.918145)
+
+[node name="Target3" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=463913265 instance=ExtResource("20_08kc0")]
+transform = Transform3D(-5.9604645e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -5.9604645e-08, 8.546247, 0.019410491, 12.918146)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=789140690]
 transform = Transform3D(0.1656671, 0.5553553, -0.8149447, 8.3013745e-08, 0.8263636, 0.5631369, 0.98618174, -0.09329332, 0.13690121, 0, 14.548841, 0)
 light_color = Color(1, 0.685, 0.37, 1)
@@ -1011,9 +1028,6 @@ compositor = SubResource("Compositor_75b2y")
 
 [node name="mage_projectile" parent="." unique_id=1369663050 instance=ExtResource("18_tnm7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.358546, 1.0194105, -2.2419097)
-
-[node name="door" parent="." unique_id=1100382097 instance=ExtResource("19_j8t0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36)
 
 [editable path="SubViewportContainer/SubViewport/World/Player"]
 [editable path="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car"]

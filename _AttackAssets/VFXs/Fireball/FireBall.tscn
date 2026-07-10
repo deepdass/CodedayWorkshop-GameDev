@@ -109,6 +109,7 @@ process_material = SubResource("ParticleProcessMaterial_36bjb")
 draw_pass_1 = SubResource("QuadMesh_iguuu")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1027229506]
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=27507057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00114441, 0.000734329, 0.0070802)

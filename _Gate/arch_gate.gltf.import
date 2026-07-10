@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b3xrmmv2458e4"
-valid=false
+uid="uid://bguxs0adl56yk"
+path="res://.godot/imported/arch_gate.gltf-8be1643f889b7193b7763f8f3a1a3c9c.scn"
 
 [deps]
 
 source_file="res://_Gate/arch_gate.gltf"
+dest_files=["res://.godot/imported/arch_gate.gltf-8be1643f889b7193b7763f8f3a1a3c9c.scn"]
 
 [params]
 

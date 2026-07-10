@@ -12,6 +12,9 @@ const JUMP_VELOCITY = 5.4
 @onready var animation_player: AnimationPlayer = $Visuals/Mage/AnimationPlayer
 @onready var animation_player_car: AnimationPlayer = $Visuals/Car/catbanana/AnimationPlayer
 
+@onready var fire_pos: Node3D = $Visuals/FirePos
+@onready var FireballScene : PackedScene = preload("res://_AttackAssets/VFXs/Fireball/FireBall.tscn")
+
 var look_at_me : Vector3
 
 
@@ -27,6 +30,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
+	
+	if (Input.is_action_just_pressed("Fire")):
+		
+		var fireball_inst = FireballScene.instantiate()
+		fireball_inst.global_transform = fire_pos.global_transform
+		get_tree().get_current_scene().add_child(fireball_inst)
+		animation_player.play("Spellcast_Shoot")
 
 
 func _physics_process(delta: float) -> void:
@@ -52,7 +62,8 @@ func _physics_process(delta: float) -> void:
 		visuals.rotation.y = lerp_angle(visuals.rotation.y, target_rotation, 8.0 * delta)
 		
 		if IsMage:
-			animation_player.play("Walking_A")
+			if (!animation_player.is_playing()):
+				animation_player.play("Walking_A")
 		else:
 			animation_player_car.play("metarigAction_001")
 		
@@ -63,11 +74,10 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 		if IsMage:
-			animation_player.play("Idle")
+			if (!animation_player.is_playing()):
+				animation_player.play("Idle")
 		else:
 			animation_player_car.seek(0)
-	
-	
 	
 	move_and_slide()
 

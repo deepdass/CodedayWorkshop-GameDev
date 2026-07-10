@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Restart")):
 		get_tree().reload_current_scene()
 		
-	print(Engine.get_frames_per_second())
+	#print(Engine.get_frames_per_second())
 
 
 func _physics_process(delta: float) -> void:
