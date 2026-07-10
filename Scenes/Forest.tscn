@@ -955,11 +955,11 @@ draw_pass_1 = SubResource("QuadMesh_twefy")
 
 [node name="Cloud" type="Node3D" parent="SubViewportContainer/SubViewport/World/Env" unique_id=1633823655 node_paths=PackedStringArray("spawn_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -8, 0)
-visible = false
 script = ExtResource("15_djgpu")
 cloud_scenes = Array[PackedScene]([ExtResource("16_pw6c3"), ExtResource("14_4xied"), ExtResource("16_djgpu")])
 spawn_area = NodePath("CollisionShape3D")
 cloud_count = 600
+min_height = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Env/Cloud" unique_id=1885621681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29, 0)
@@ -1015,6 +1015,12 @@ transform = Transform3D(-0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.7
 [node name="Target3" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=463913265 instance=ExtResource("20_08kc0")]
 transform = Transform3D(-5.9604645e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -5.9604645e-08, 8.546247, 0.019410491, 12.918146)
 
+[node name="coin" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=856133393 instance=ExtResource("21_qsy24")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9446926, 0.007805705, 2.3313348)
+
+[node name="coin2" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=236260434 instance=ExtResource("21_qsy24")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9446929, 0.007805705, 4.480343)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=789140690]
 transform = Transform3D(0.1656671, 0.5553553, -0.8149447, 8.3013745e-08, 0.8263636, 0.5631369, 0.98618174, -0.09329332, 0.13690121, 0, 14.548841, 0)
 light_color = Color(1, 0.685, 0.37, 1)
@@ -1029,12 +1035,6 @@ compositor = SubResource("Compositor_75b2y")
 
 [node name="mage_projectile" parent="." unique_id=1369663050 instance=ExtResource("18_tnm7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.358546, 1.0194105, -2.2419097)
-
-[node name="coin" parent="." unique_id=856133393 instance=ExtResource("21_qsy24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.331335, 0.007805705, 3.9446926)
-
-[node name="coin2" parent="." unique_id=236260434 instance=ExtResource("21_qsy24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.480343, 0.007805705, 3.9446926)
 
 [editable path="SubViewportContainer/SubViewport/World/Player"]
 [editable path="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car"]
