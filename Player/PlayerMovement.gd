@@ -4,6 +4,8 @@ extends CharacterBody3D
 const SPEED = 7.0
 const JUMP_VELOCITY = 5.4
 
+var TotalCoins : int = 0
+
 @onready var visuals: Node3D = $Visuals
 
 @export var IsMage : bool = false
@@ -31,6 +33,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
 	
+	print(TotalCoins)
+	
 	if (Input.is_action_just_pressed("Fire")):
 		
 		var fireball_inst = FireballScene.instantiate()
@@ -40,7 +44,6 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -80,6 +83,10 @@ func _physics_process(delta: float) -> void:
 			animation_player_car.seek(0)
 	
 	move_and_slide()
+
+func add_coin(CoinAmount : int):
+	TotalCoins += CoinAmount
+	
 
 
 func _rotate(where: Vector3) -> void:

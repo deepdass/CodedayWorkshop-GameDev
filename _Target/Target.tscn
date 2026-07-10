@@ -786,7 +786,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.6333333, 0.9, 1.0666666, 1.1666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-7.54979e-08, 0, 0), Vector3(0.10241598, -0.2398695, -0.0031620031), Vector3(-7.54979e-08, 0, 0), Vector3(-7.54979e-08, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(-7.54979e-08, 0, 0), Vector3(0.10241598, -0.2398695, -0.0031620031), Vector3(-7.54979e-08, 0, 0), Vector3(-0.034365073, 0.102777034, -7.753183e-09), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -810,7 +810,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.26666668, 0.43330002, 0.43333334, 0.6333333, 0.9, 1.0666666, 1.0667, 1.1666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.102411084, -0.6506052, -0.07765859), Vector3(-0.005344659, -0.5432953, -0.07702535), Vector3(-0.0053438954, -0.5432177, 0.03241259), Vector3(0, 0, 0), Vector3(0, 0.2133467, 0), Vector3(0, -0.09077466, 0), Vector3(0, -0.15248692, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.102411084, -0.6506052, -0.07765859), Vector3(-0.005344659, -0.5432953, -0.07702535), Vector3(-0.0053438954, -0.5432177, 0.03241259), Vector3(0, 0, 0), Vector3(0, 0.2754109, 0), Vector3(0, -0.09077466, 0), Vector3(0, -0.15248692, 0), Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -891,7 +891,7 @@ script = ExtResource("1_2lrb5")
 transform = Transform3D(0.36, 0, 0, 0, -1.57361e-08, 0.36, 0, -0.36, -1.57361e-08, 0, 0, 0)
 
 [node name="Base" type="MeshInstance3D" parent="TargetMesh" unique_id=240166757]
-transform = Transform3D(99.999985, 0, 0, 0, 99.99999, 7.5497896e-06, 0, -7.5497896e-06, 99.99999, -4.656613e-10, 0.021236777, 8.201599e-05)
+transform = Transform3D(99.99998, 0, 0, 0, 99.99999, 7.5497896e-06, 0, -7.5497896e-06, 99.99999, -4.656613e-10, 0.021236777, 8.201599e-05)
 mesh = SubResource("ArrayMesh_7w1ck")
 skeleton = NodePath("")
 
@@ -901,7 +901,7 @@ mesh = SubResource("ArrayMesh_ulfwf")
 skeleton = NodePath("")
 
 [node name="Body" type="MeshInstance3D" parent="TargetMesh/Base" unique_id=698320630]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, -0.00015840122, 2.9707546e-05, 0.023727294)
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999993, -0.00015840122, 2.9707546e-05, 0.023727294)
 mesh = SubResource("ArrayMesh_508t2")
 skeleton = NodePath("")
 

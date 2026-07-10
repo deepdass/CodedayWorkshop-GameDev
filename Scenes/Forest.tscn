@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://in5kn62g2jfk" path="res://_AttackAssets/VFXs/Fireball/FireBall.tscn" id="18_tnm7e"]
 [ext_resource type="PackedScene" uid="uid://br483nydnq3u5" path="res://_Gate/Gate.tscn" id="19_j8t0e"]
 [ext_resource type="PackedScene" uid="uid://pvig1l7m2h6q" path="res://_Target/Target.tscn" id="20_08kc0"]
+[ext_resource type="PackedScene" uid="uid://bg1418yi6au5e" path="res://_Coin/coin.tscn" id="21_qsy24"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_twefy"]
 transform_format = 1
@@ -1028,6 +1029,12 @@ compositor = SubResource("Compositor_75b2y")
 
 [node name="mage_projectile" parent="." unique_id=1369663050 instance=ExtResource("18_tnm7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.358546, 1.0194105, -2.2419097)
+
+[node name="coin" parent="." unique_id=856133393 instance=ExtResource("21_qsy24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.331335, 0.007805705, 3.9446926)
+
+[node name="coin2" parent="." unique_id=236260434 instance=ExtResource("21_qsy24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.480343, 0.007805705, 3.9446926)
 
 [editable path="SubViewportContainer/SubViewport/World/Player"]
 [editable path="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car"]

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bg1418yi6au5e"]
+
+[ext_resource type="PackedScene" uid="uid://c1qa2my2iot3i" path="res://_Coin/coin.gltf" id="1_hwfld"]
+[ext_resource type="Script" uid="uid://d2314u3ds8lgr" path="res://_Coin/coin.gd" id="2_al0no"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bjqgx"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_al0no"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coin:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.2, 1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_td85r"]
+resource_name = "Turn"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0), Vector3(1.5707964, -3.1415925, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coin:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hllvl"]
+_data = {
+&"RESET": SubResource("Animation_al0no"),
+&"Turn": SubResource("Animation_td85r")
+}
+
+[node name="coin" unique_id=856133393 instance=ExtResource("1_hwfld")]
+script = ExtResource("2_al0no")
+
+[node name="coin" parent="." index="0" unique_id=1452925667]
+transform = Transform3D(1.2, 0, 0, 0, -5.2453668e-08, -1.2, 0, 1.2, -5.2453668e-08, 0, 1, 4.371139e-08)
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=630664802]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=87252577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_bjqgx")
+
+[node name="Timer" type="Timer" parent="." index="2" unique_id=1097918806]
+wait_time = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1672734149]
+libraries/ = SubResource("AnimationLibrary_hllvl")
+autoplay = &"Turn"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
