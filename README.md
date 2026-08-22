@@ -5,6 +5,8 @@ A 3D pixelated Game Built in Godot for CodeDay Lucknow 2026 - Game Development w
 
 <img width="1151" height="647" alt="image" src="https://github.com/user-attachments/assets/a7561fe4-7ede-4ccb-a0af-db3ebac50bcd" />
 
+For the demonstration in Godot, I included challenges that introduced them to all the features that they may need to make a game by themself. The project file that we provided to the participants also included references for the challenge and during the workshop, I tried to walk them through the full thought process in building the game.
+
 ## Credits
 - vegetation shader - https://pixelagegames.itch.io/3d-pixelart-vegetation
 - Traget Dummy Mesh - "Training Dummy" (https://skfb.ly/oWyYJ) by Finlay Ross is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
