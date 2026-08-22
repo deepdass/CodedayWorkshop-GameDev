@@ -1,4 +1,4 @@
-# NewGame+
+# PixSpell
 A 3D pixelated Game Built in Godot for CodeDay Lucknow 2026 - Game Development workshop
 
 <img width="1152" height="646" alt="Screenshot" src="https://github.com/user-attachments/assets/f842a7e2-23ff-43de-b0b9-00e3920bcfb0" />
