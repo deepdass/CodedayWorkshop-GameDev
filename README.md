@@ -4,7 +4,7 @@ A 3D pixelated Game Built in Godot for CodeDay Lucknow 2026 - Game Development w
 ## How to Run the godot project
 To get the godot project running on your system, first clone this github repo into a local folder using git or just download the zip by tapping the green code on top.
 <br> Then Download the Godot 4.7 version from https://godotengine.org/ as the game was made on it, you could also use the latest version - but things may break on import.
-Then just open godot and tap import on the top bar, then locate the zip folder and press import - and you have the project files.
+Then just open godot and tap import on the top bar, then locate the zip folder and press import the zip directly - and you have the project files.
 
 Live link - [here](https://deepdass.itch.io/pixspell)
 
