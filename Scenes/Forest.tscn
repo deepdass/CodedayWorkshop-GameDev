@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://u1nuoyclw43e"]
 
 [ext_resource type="Script" uid="uid://s2kfhudsm338" path="res://Scripts/manager.gd" id="1_pw6c3"]
+[ext_resource type="PackedScene" uid="uid://dmq1ibgfh7bvh" path="res://UI/PlayerHud.tscn" id="2_qsy24"]
 [ext_resource type="ArrayMesh" uid="uid://cmj5tvjjvysjm" path="res://Assets/Meshes/grassTall_plane_mesh.res" id="3_djgpu"]
 [ext_resource type="PackedScene" uid="uid://br1ogaxeo4ppc" path="res://Scenes/Env/tree1.tscn" id="4_j3sk6"]
 [ext_resource type="ArrayMesh" uid="uid://dp5c3nqdvnsv0" path="res://Assets/Meshes/flower.res" id="4_tnm7e"]
@@ -17,7 +18,6 @@
 [ext_resource type="Script" uid="uid://ddnvour5ytb6n" path="res://Scripts/SpawnCloud.gd" id="15_djgpu"]
 [ext_resource type="PackedScene" uid="uid://bg7xvsn2f663n" path="res://Scenes/Env/sphere_cloud.tscn" id="16_djgpu"]
 [ext_resource type="PackedScene" uid="uid://cqjkyry35kkqa" path="res://Scenes/Env/cloud.tscn" id="16_pw6c3"]
-[ext_resource type="PackedScene" uid="uid://in5kn62g2jfk" path="res://_AttackAssets/VFXs/Fireball/FireBall.tscn" id="18_tnm7e"]
 [ext_resource type="PackedScene" uid="uid://br483nydnq3u5" path="res://_Gate/Gate.tscn" id="19_j8t0e"]
 [ext_resource type="PackedScene" uid="uid://pvig1l7m2h6q" path="res://_Target/Target.tscn" id="20_08kc0"]
 [ext_resource type="PackedScene" uid="uid://bg1418yi6au5e" path="res://_Coin/coin.tscn" id="21_qsy24"]
@@ -198,11 +198,17 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 [node name="Manager" type="Node" parent="SubViewportContainer/SubViewport/World" unique_id=1582070962]
 script = ExtResource("1_pw6c3")
 
+[node name="Control" parent="SubViewportContainer/SubViewport/World" unique_id=535370977 instance=ExtResource("2_qsy24")]
+visible = false
+
 [node name="First" parent="SubViewportContainer/SubViewport/World" unique_id=874457881 instance=ExtResource("15_4xied")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 63, 1.7289679, -4.000003)
 
 [node name="Player" parent="SubViewportContainer/SubViewport/World" unique_id=1652226877 instance=ExtResource("15_cjp06")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MovementComp" parent="SubViewportContainer/SubViewport/World/Player" index="0" unique_id=1360391585]
+IsMage = true
 
 [node name="Skeleton3D" parent="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car/catbanana/Cat" parent_id_path=PackedInt32Array(1652226877, 580211, 88304319) index="0" unique_id=76307917]
 bones/0/position = Vector3(-6.7666595e-05, 0.39023006, -0.052428715)
@@ -312,7 +318,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, -5.0000005)
 
 [node name="GreenLand11" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=94867703 instance=ExtResource("10_e2fbs")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.98938, -0.011604786, 4.9971547)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 5)
 
 [node name="GreenLand19" parent="SubViewportContainer/SubViewport/World/Landscape/GreenLand" unique_id=114513339 instance=ExtResource("10_e2fbs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9999995, 0, 15)
@@ -960,6 +966,7 @@ cloud_scenes = Array[PackedScene]([ExtResource("16_pw6c3"), ExtResource("14_4xie
 spawn_area = NodePath("CollisionShape3D")
 cloud_count = 600
 min_height = 0.0
+max_height = 29.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Env/Cloud" unique_id=1885621681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29, 0)
@@ -1007,19 +1014,19 @@ skeleton = NodePath("../../../../../../..")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, 0, -1.57361e-06)
 
 [node name="Target" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=620605259 instance=ExtResource("20_08kc0")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.546246, 0.019410491, 2.9181452)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.558075, 0.019410491, 5.1411695)
 
 [node name="Target2" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=1090575893 instance=ExtResource("20_08kc0")]
-transform = Transform3D(-0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.7071069, 8.546246, 0.019410491, 5.918145)
+transform = Transform3D(-0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.7071069, 9.505696, 0.019410491, 8.594221)
 
 [node name="Target3" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=463913265 instance=ExtResource("20_08kc0")]
-transform = Transform3D(-5.9604645e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -5.9604645e-08, 8.546247, 0.019410491, 12.918146)
+transform = Transform3D(-5.9604645e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -5.9604645e-08, 35.546246, 0.019410491, 12.683864)
 
 [node name="coin" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=856133393 instance=ExtResource("21_qsy24")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9446926, 0.007805705, 2.3313348)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.2472644, 0.007805705, 4.559069)
 
 [node name="coin2" parent="SubViewportContainer/SubViewport/World/stuff" unique_id=236260434 instance=ExtResource("21_qsy24")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9446929, 0.007805705, 4.480343)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.247265, 0.007805705, 7.2275705)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=789140690]
 transform = Transform3D(0.1656671, 0.5553553, -0.8149447, 8.3013745e-08, 0.8263636, 0.5631369, 0.98618174, -0.09329332, 0.13690121, 0, 14.548841, 0)
@@ -1032,9 +1039,6 @@ directional_shadow_pancake_size = 400.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1195914966]
 environment = SubResource("Environment_igfsh")
 compositor = SubResource("Compositor_75b2y")
-
-[node name="mage_projectile" parent="." unique_id=1369663050 instance=ExtResource("18_tnm7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.358546, 1.0194105, -2.2419097)
 
 [editable path="SubViewportContainer/SubViewport/World/Player"]
 [editable path="SubViewportContainer/SubViewport/World/Player/MovementComp/Visuals/Car"]

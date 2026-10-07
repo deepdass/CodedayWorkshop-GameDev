@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds4nwe17k3hwt"
 path.s3tc="res://.godot/imported/T_FireBallCore.PNG-2596eda59447ee76d3058fa584a2345d.s3tc.ctex"
+path.etc2="res://.godot/imported/T_FireBallCore.PNG-2596eda59447ee76d3058fa584a2345d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://_AttackAssets/VFXs/Fireball/Texture/T_FireBallCore.PNG"
-dest_files=["res://.godot/imported/T_FireBallCore.PNG-2596eda59447ee76d3058fa584a2345d.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_FireBallCore.PNG-2596eda59447ee76d3058fa584a2345d.s3tc.ctex", "res://.godot/imported/T_FireBallCore.PNG-2596eda59447ee76d3058fa584a2345d.etc2.ctex"]
 
 [params]
 

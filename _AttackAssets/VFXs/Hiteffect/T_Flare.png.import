@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq76ka6hvailo"
 path.s3tc="res://.godot/imported/T_Flare.png-7f9f2df730f70b1ab7b189ef3920fba2.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Flare.png-7f9f2df730f70b1ab7b189ef3920fba2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://_AttackAssets/VFXs/Hiteffect/T_Flare.png"
-dest_files=["res://.godot/imported/T_Flare.png-7f9f2df730f70b1ab7b189ef3920fba2.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_Flare.png-7f9f2df730f70b1ab7b189ef3920fba2.s3tc.ctex", "res://.godot/imported/T_Flare.png-7f9f2df730f70b1ab7b189ef3920fba2.etc2.ctex"]
 
 [params]
 

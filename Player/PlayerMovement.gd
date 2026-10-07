@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 	print(TotalCoins)
 	
 	if (Input.is_action_just_pressed("Fire")):
-		
 		var fireball_inst = FireballScene.instantiate()
 		fireball_inst.global_transform = fire_pos.global_transform
 		get_tree().get_current_scene().add_child(fireball_inst)

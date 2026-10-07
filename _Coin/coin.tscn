@@ -71,7 +71,7 @@ _data = {
 [node name="coin" unique_id=856133393 instance=ExtResource("1_hwfld")]
 script = ExtResource("2_al0no")
 
-[node name="coin" parent="." index="0" unique_id=1452925667]
+[node name="coin" parent="." index="0" unique_id=2006246875]
 transform = Transform3D(1.2, 0, 0, 0, -5.2453668e-08, -1.2, 0, 1.2, -5.2453668e-08, 0, 1, 4.371139e-08)
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=630664802]
