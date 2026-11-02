@@ -4,9 +4,9 @@
 
 [node name="Mage" unique_id=955432568 instance=ExtResource("1_8m7q6")]
 
-[node name="Skeleton3D" parent="CharacterMesh/Rig" parent_id_path=PackedInt32Array(1610429155) index="0" unique_id=850750380]
+[node name="Skeleton3D" parent="CharacterMesh/Rig" parent_id_path=PackedInt32Array(769711501) index="0" unique_id=932811653]
 bones/0/rotation = Quaternion(0, 1.19209e-07, 0, 1)
-bones/1/position = Vector3(0, 0.235238, 0)
+bones/1/position = Vector3(0, 0.2822856, 0)
 bones/2/rotation = Quaternion(-6.93889e-18, 7.10543e-15, 4.93038e-32, 1)
 bones/3/rotation = Quaternion(8.27181e-25, 3.72529e-09, -2.75506e-40, 1)
 bones/4/rotation = Quaternion(-0.55990636, -0.060880333, -0.6439745, 0.51777935)
@@ -27,34 +27,34 @@ bones/20/rotation = Quaternion(0.27400813, -6.381351e-08, 1.9276105e-07, 0.96172
 bones/21/rotation = Quaternion(-0.5590391, 0.11451304, -0.00862764, 0.8211502)
 bones/22/rotation = Quaternion(3.03591e-08, 0.920355, -0.391084, -6.95338e-08)
 bones/23/rotation = Quaternion(0.7071068, -2.2930195e-07, -4.605519e-08, 0.7071068)
-bones/24/position = Vector3(0.128351, 0.0155942, 0.104319)
+bones/24/position = Vector3(0.1540212, 0.01871304, 0.1251828)
 bones/24/rotation = Quaternion(-0.70509243, 0.05333553, 0.05333553, 0.70509243)
 bones/25/rotation = Quaternion(9.65792e-09, 1.7795501e-09, 0.9857191, -0.168398)
-bones/26/position = Vector3(-6.6889303e-09, 0.128062, -3.21808e-09)
+bones/26/position = Vector3(-8.026716e-09, 0.1536744, -3.8616963e-09)
 bones/26/rotation = Quaternion(-1.1096099e-07, 0.39108396, 0.920355, -2.67919e-08)
-bones/27/position = Vector3(-3.7867705e-09, 0.09939, -4.2616e-09)
+bones/27/position = Vector3(-4.5441237e-09, 0.11926801, -5.11392e-09)
 bones/28/rotation = Quaternion(1, -8.273626e-11, 1.94627e-07, -7.45058e-09)
 bones/30/rotation = Quaternion(0.7071068, -3.8238493e-08, 1.4500897e-07, 0.7071068)
 bones/31/rotation = Quaternion(-0.7071068, -7.0528486e-08, -7.052849e-08, 0.7071068)
 bones/32/rotation = Quaternion(-5.835892e-09, 6.438373e-10, 0.9948094, 0.101756044)
-bones/33/position = Vector3(-6.68893e-09, 0.128062, -1.50565e-15)
+bones/33/position = Vector3(-8.026716e-09, 0.1536744, -1.8067801e-15)
 bones/33/rotation = Quaternion(-1.0579599e-07, 0.39108396, 0.920355, -2.5864297e-08)
 bones/35/rotation = Quaternion(1, 3.76526e-09, 1.94879e-07, 7.45058e-09)
 bones/37/rotation = Quaternion(-0.7071068, -7.279509e-08, -7.279509e-08, 0.7071068)
-bones/38/position = Vector3(0.312504, 0.472987, -0.0345824)
+bones/38/position = Vector3(0.3750048, 0.5675844, -0.04149888)
 bones/38/rotation = Quaternion(0.794627, -9.80973e-08, 0.6070979, -8.1476095e-08)
 bones/39/rotation = Quaternion(-0.7071068, -7.279509e-08, -7.279509e-08, 0.7071068)
-bones/40/position = Vector3(-0.306506, 0.472987, 0.0358422)
+bones/40/position = Vector3(-0.3678072, 0.5675844, 0.04301064)
 bones/40/rotation = Quaternion(0.7582527, 2.0632693e-07, -0.6519608, 2.6433002e-08)
 
-[node name="handslot_l" parent="CharacterMesh/Rig/Skeleton3D" index="0" unique_id=890402718]
-transform = Transform3D(-3.6194277e-07, 0.2628647, 0.9648326, 0.99999994, -5.066395e-07, 6.303209e-07, 6.419255e-07, 0.96483254, -0.26286477, 0.30466032, 0.3820236, -0.011112688)
+[node name="handslot_l" parent="CharacterMesh/Rig/Skeleton3D" index="0" unique_id=250719176]
+transform = Transform3D(-3.6194277e-07, 0.2628647, 0.9648326, 0.99999994, -5.066395e-07, 6.303209e-07, 6.419255e-07, 0.96483254, -0.26286477, 0.36559236, 0.4584283, -0.013335229)
 
-[node name="handslot_r" parent="CharacterMesh/Rig/Skeleton3D" index="1" unique_id=1694125553]
-transform = Transform3D(-3.5312405e-07, -0.14989395, -0.98870224, -1.0000001, -8.34465e-07, 4.51516e-07, -1.1026841e-06, 0.9887021, -0.14989398, -0.29463586, 0.3846182, 0.06395724)
+[node name="handslot_r" parent="CharacterMesh/Rig/Skeleton3D" index="1" unique_id=156580018]
+transform = Transform3D(-3.5312405e-07, -0.14989395, -0.98870224, -1.0000001, -8.34465e-07, 4.51516e-07, -1.1026841e-06, 0.9887021, -0.14989398, -0.35356304, 0.46154177, 0.07674869)
 
-[node name="head" parent="CharacterMesh/Rig/Skeleton3D" index="2" unique_id=903311159]
-transform = Transform3D(0.99972034, -1.4014482e-09, 0.023646828, 1.3934276e-09, 1, 3.5568742e-10, -0.023646828, -3.2263786e-10, 0.99972034, -2.5823177e-09, 0.736696, 7.3559475e-16)
+[node name="head" parent="CharacterMesh/Rig/Skeleton3D" index="2" unique_id=391028424]
+transform = Transform3D(0.99972034, -1.4014482e-09, 0.023646828, 1.3934276e-09, 1, 3.5568742e-10, -0.023646828, -3.2263786e-10, 0.99972034, -3.0987815e-09, 0.88403517, 8.827137e-16)
 
-[node name="chest" parent="CharacterMesh/Rig/Skeleton3D" index="3" unique_id=778149815]
-transform = Transform3D(0.9962748, -5.1496194e-09, 0.08623545, 5.1304365e-09, 1, 4.4407827e-10, -0.08623545, 1.463736e-15, 0.9962748, -1.7517975e-09, 0.575418, 4.9952635e-16)
+[node name="chest" parent="CharacterMesh/Rig/Skeleton3D" index="3" unique_id=107754293]
+transform = Transform3D(0.9962748, -5.1496194e-09, 0.08623545, 5.1304365e-09, 1, 4.4407827e-10, -0.08623545, 1.463736e-15, 0.9962748, -2.1021571e-09, 0.6905016, 5.994316e-16)

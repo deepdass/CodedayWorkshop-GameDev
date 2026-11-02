@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 7.0
+const SPEED = 7.5
 const JUMP_VELOCITY = 5.4
 
 var TotalCoins : int = 0
@@ -18,9 +18,13 @@ var TotalCoins : int = 0
 @onready var FireballScene : PackedScene = preload("res://_AttackAssets/VFXs/Fireball/FireBall.tscn")
 
 var look_at_me : Vector3
+var running : bool= false
+
+@onready var animation_tree: AnimationTree = $Visuals/Mage/AnimationTree
 
 
 func _ready() -> void:
+	
 	if IsMage:
 		mage.visible = true
 		car.visible = false
@@ -33,13 +37,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
 	
-	print(TotalCoins)
+	##print(TotalCoins)
 	
 	if (Input.is_action_just_pressed("Fire")):
+		animation_tree.set("parameters/attack_basic/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		
 		var fireball_inst = FireballScene.instantiate()
 		fireball_inst.global_transform = fire_pos.global_transform
 		get_tree().get_current_scene().add_child(fireball_inst)
-		animation_player.play("Spellcast_Shoot")
 
 
 func _physics_process(delta: float) -> void:
@@ -51,6 +56,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		running = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -64,8 +70,8 @@ func _physics_process(delta: float) -> void:
 		visuals.rotation.y = lerp_angle(visuals.rotation.y, target_rotation, 8.0 * delta)
 		
 		if IsMage:
-			if (!animation_player.is_playing()):
-				animation_player.play("Walking_A")
+			if !running:
+				running = true
 		else:
 			animation_player_car.play("metarigAction_001")
 		
@@ -76,10 +82,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 		if IsMage:
-			if (!animation_player.is_playing()):
-				animation_player.play("Idle")
+			running = false
 		else:
 			animation_player_car.seek(0)
+	
+	animation_tree.set("parameters/AnimationNodeStateMachine/conditions/running", running)
+	animation_tree.set("parameters/AnimationNodeStateMachine/conditions/idle", !running)
 	
 	move_and_slide()
 
