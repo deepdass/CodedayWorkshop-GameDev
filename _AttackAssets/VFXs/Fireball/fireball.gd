@@ -15,10 +15,11 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	
 	var target_node = body.get_parent()
+	print("hit body: ", body.name, " parent: ", target_node.name if target_node else "none")
 	if target_node and target_node.has_method("TargetEff"):
-		target_node.TargetEff()
+		var dir: Vector3 = (global_position - body.global_position).normalized()
+		target_node.TargetEff(dir)
 	
 	if body is RigidBody3D:
 		var dir : Vector3 = (body.global_position - global_position).normalized()

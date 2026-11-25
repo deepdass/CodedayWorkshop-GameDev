@@ -19,8 +19,10 @@ var TotalCoins : int = 0
 
 var look_at_me : Vector3
 var running : bool= false
+var can_attack = true
 
 @onready var animation_tree: AnimationTree = $Visuals/Mage/AnimationTree
+@onready var attack_timer: Timer = $Visuals/Mage/AttackTimer
 
 
 func _ready() -> void:
@@ -39,12 +41,18 @@ func _process(delta: float) -> void:
 	
 	##print(TotalCoins)
 	
-	if (Input.is_action_just_pressed("Fire")):
+	if (Input.is_action_just_pressed("Fire")) and can_attack:
 		animation_tree.set("parameters/attack_basic/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		can_attack = false
+		attack_timer.start()
 		
 		var fireball_inst = FireballScene.instantiate()
 		fireball_inst.global_transform = fire_pos.global_transform
 		get_tree().get_current_scene().add_child(fireball_inst)
+
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true
 
 
 func _physics_process(delta: float) -> void:
